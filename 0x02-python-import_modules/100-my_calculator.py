@@ -1,51 +1,34 @@
 #!/usr/bin/python3
-def add(a, b):
-    """My addition function
-
-    Args:
-        a: first integer
-        b: second integer
-
-    Returns:
-        The return value. a + b
-    """
-    return (a + b)
 
 
-def sub(a, b):
-    """My subtraction function
+if __name__ == "__main__":
+    from sys import argv
+    from calculator_1 import add, sub, mul, div
 
-    Args:
-        a: first integer
-        b: second integer
+    argc = len(argv)
+    ops = ["+", "-", "*", "/"]
 
-    Returns:
-        The return value. a - b
-    """
-    return (a - b)
+    if (argc != 4):
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        exit(1)
 
+    if (argv[2] not in ops):
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
 
-def mul(a, b):
-    """My multiplication function
+    a = int(argv[1])
+    b = int(argv[3])
+    op = str(argv[2])
 
-    Args:
-        a: first integer
-        b: second integer
+    if (op == '+'):
+        result = add(int(a), int(b))
 
-    Returns:
-        The return value. a * b
-    """
-    return (a * b)
+    elif (op == '-'):
+        result = sub(int(a), int(b))
 
+    elif (op == '*'):
+        result = mul(int(a), int(b))
+    else:
+        result = div(int(a), int(b))
 
-def div(a, b):
-    """My division function
-
-    Args:
-        a: first integer
-        b: second integer
-
-    Returns:
-        The return value. a / b
-    """
-    return int(a / b)
+    print(f"{a} {op} {b} = {result}")
