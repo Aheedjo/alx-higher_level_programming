@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 // a script that writes to a file
 const fs = require('fs');
 
